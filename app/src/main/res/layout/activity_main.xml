@@ -10,6 +10,8 @@
         android:layout_width="375dp"
         android:layout_height="wrap_content"
         android:text="AJOUTER"
+        android:backgroundTint="#CCCCCC"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
