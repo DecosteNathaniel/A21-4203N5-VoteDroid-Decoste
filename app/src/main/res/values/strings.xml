@@ -2,4 +2,8 @@
     <string name="app_name">VoteDroid</string>
 
     <string name="main_button_ajouter">Ajouter</string>
+
+    <string name="creationQuestion_titre">Ta question</string>
+
+    <string name="creationQuestion_poser_question">Poser la question</string>
 </resources>
