@@ -26,16 +26,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-    <EditText
+    <AutoCompleteTextView
         android:id="@+id/textQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:translationY="20dp"
         android:backgroundTint="#ADCDC5"
-        android:textColor="#737373"
+        android:hint="@string/creationQuestion_titre"
+        android:theme="@style/text_insert"
         android:ems="10"
-        android:inputType="text"
-        android:text="@string/creationQuestion_titre" />
+        android:inputType="text" />
 
     <Button
         android:id="@+id/btnPoserQuestion"

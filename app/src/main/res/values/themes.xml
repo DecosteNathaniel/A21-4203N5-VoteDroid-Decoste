@@ -13,4 +13,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="text_insert">
+        <item name="colorControlNormal">#737373</item>
+        <item name="colorControlActivated">@color/black</item>
+    </style>
 </resources>
