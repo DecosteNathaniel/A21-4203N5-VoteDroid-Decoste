@@ -1,6 +1,8 @@
 package com.decoste.votedroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +15,8 @@ import com.decoste.votedroid.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
+
+    QuestionAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        this.initRecycler();
+        this.remplirRecycle();
+
     }
 
     @Override
@@ -50,5 +58,25 @@ public class MainActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void initRecycler(){
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        adapter = new QuestionAdapter();
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void remplirRecycle(){
+        for (int i = 0; i < 20; i++){
+            Question q = new Question();
+            q.question = "Question " + (i + 1);
+            adapter.list.add(q);
+        }
+        adapter.notifyDataSetChanged();
     }
 }
