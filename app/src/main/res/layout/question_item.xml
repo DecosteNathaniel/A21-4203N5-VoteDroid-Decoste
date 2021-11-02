@@ -11,14 +11,17 @@
             android:id="@+id/tvQuestion"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
 
         <Button
             android:id="@+id/tvButton"
             android:layout_width="54dp"
             android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
             android:drawableLeft="@drawable/ic_question_button"
-            android:backgroundTint="#CCCCCC"/>
+            android:backgroundTint="#CCCCCC" />
 
     </LinearLayout>
 
