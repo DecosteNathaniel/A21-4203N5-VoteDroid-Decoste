@@ -27,6 +27,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
+    <RatingBar
+        android:id="@+id/simpleRatingBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="63dp"
+        android:layout_marginRight="62dp"
+        android:layout_marginTop="30dp"
+        android:rating="2.5"
+        android:numStars="5" />
+
     <AutoCompleteTextView
         android:id="@+id/textQuestion"
         android:layout_width="match_parent"
@@ -34,7 +44,7 @@
         android:translationY="20dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:backgroundTint="#ADCDC5"
         android:hint="@string/creationQuestion_titre"
         android:theme="@style/text_insert"
