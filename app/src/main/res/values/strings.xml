@@ -6,4 +6,8 @@
     <string name="creationQuestion_titre">Ta question</string>
 
     <string name="creationQuestion_poser_question">Poser la question</string>
+
+    <string name="vote">Voter</string>
+
+    <string name="question_a_voter">Une question très importante.</string>
 </resources>
