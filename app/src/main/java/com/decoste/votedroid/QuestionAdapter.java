@@ -1,6 +1,8 @@
 package com.decoste.votedroid;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -10,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyViewHolder> {
     public List<Question> list;
 
@@ -17,6 +21,8 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
     public static class MyViewHolder extends RecyclerView.ViewHolder {
+
+
         // each data item is just a string in this case
         public TextView tvQuestion;
         public TextView tvButton;
@@ -24,7 +30,9 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
             super(v);
             tvQuestion = v.findViewById(R.id.tvQuestion);
             tvButton = v.findViewById(R.id.tvButton);
+
         }
+
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
@@ -51,6 +59,21 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
         Question questionCourante = list.get(position);
         holder.tvQuestion.setText(questionCourante.question); // TODO setText sur un integer crash
 
+        holder.tvButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ResultatActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), VoteActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     // renvoie la taille de la liste

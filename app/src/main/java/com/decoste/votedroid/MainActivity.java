@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         this.initRecycler();
         this.remplirRecycle();
 
+
     }
 
     @Override
