@@ -1,4 +1,4 @@
-package org.sabourin.exceptions;
+package com.decoste.votedroid.exceptions;
 
 public class MauvaisVote extends Exception {
     public MauvaisVote(String message) {

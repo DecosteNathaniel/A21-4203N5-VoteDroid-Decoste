@@ -1,13 +1,9 @@
-package org.sabourin.bd;
+package com.decoste.votedroid.bd;
 
 import androidx.room.Dao;
 import androidx.room.Insert;
-import androidx.room.Query;
 
-import org.sabourin.modele.VDQuestion;
-import org.sabourin.modele.VDVote;
-
-import java.util.List;
+import com.decoste.votedroid.modele.VDQuestion;
 
 @Dao
 public interface MonDao {

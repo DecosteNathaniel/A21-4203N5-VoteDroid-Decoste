@@ -1,4 +1,4 @@
-package org.sabourin.modele;
+package com.decoste.votedroid.modele;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

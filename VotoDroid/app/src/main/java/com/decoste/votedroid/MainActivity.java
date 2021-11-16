@@ -1,9 +1,5 @@
 package com.decoste.votedroid;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,10 +7,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
+
+import com.decoste.votedroid.bd.BD;
 import com.decoste.votedroid.databinding.ActivityMainBinding;
+import com.decoste.votedroid.service.ServiceImplementation;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
+    private ServiceImplementation service;
+    private BD maBD;
 
     QuestionAdapter adapter;
 
@@ -33,10 +38,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        maBD = Room.databaseBuilder(getApplicationContext(), BD.class, "BDQuestion")
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build();
+        service = ServiceImplementation.getInstance(maBD);
+
         this.initRecycler();
         this.remplirRecycle();
-
-
     }
 
     @Override

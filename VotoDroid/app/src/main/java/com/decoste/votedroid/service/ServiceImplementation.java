@@ -1,11 +1,9 @@
-package org.sabourin.service;
+package com.decoste.votedroid.service;
 
-import androidx.room.Room;
-
-import org.sabourin.bd.BD;
-import org.sabourin.exceptions.MauvaiseQuestion;
-import org.sabourin.modele.VDQuestion;
-import org.sabourin.modele.VDVote;
+import com.decoste.votedroid.bd.BD;
+import com.decoste.votedroid.exceptions.MauvaiseQuestion;
+import com.decoste.votedroid.modele.VDQuestion;
+import com.decoste.votedroid.modele.VDVote;
 
 import java.util.ArrayList;
 import java.util.List;

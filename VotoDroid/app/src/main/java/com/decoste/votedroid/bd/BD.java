@@ -1,10 +1,9 @@
-package org.sabourin.bd;
+package com.decoste.votedroid.bd;
 
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
-import org.sabourin.modele.VDQuestion;
-import org.sabourin.modele.VDVote;
+import com.decoste.votedroid.modele.VDQuestion;
 
 @Database(entities = {VDQuestion.class}, version = 2)
 public abstract class BD extends RoomDatabase {
