@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        maBD = Room.databaseBuilder(getApplicationContext(), BD.class, "BDQuestion")
+        BD maBD = Room.databaseBuilder(getApplicationContext(), BD.class, "BDQuestion")
                 .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
                 .build();

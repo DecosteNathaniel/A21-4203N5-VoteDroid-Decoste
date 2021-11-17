@@ -1,5 +1,6 @@
 package com.decoste.votedroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +34,14 @@ public class CreationQuestionActivity extends AppCompatActivity {
 
         AutoCompleteTextView source = findViewById(R.id.textQuestion);
 
-        binding.btnPoserQuestion.setOnClickListener(v -> creerQuestion(source.getText().toString()));
+        binding.btnPoserQuestion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                creerQuestion(source.getText().toString());
+                Intent intent = new Intent(CreationQuestionActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     private void creerQuestion(String _texteQuestion) {
         try {
