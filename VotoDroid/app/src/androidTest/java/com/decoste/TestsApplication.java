@@ -1,4 +1,4 @@
-package org.sabourin;
+package com.decoste;
 
 import android.content.Context;
 
@@ -12,11 +12,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.sabourin.bd.BD;
-import org.sabourin.bd.MonDao;
-import org.sabourin.exceptions.MauvaiseQuestion;
-import org.sabourin.modele.VDQuestion;
-import org.sabourin.service.ServiceImplementation;
+import com.decoste.votedroid.bd.BD;
+import com.decoste.votedroid.bd.MonDao;
+import com.decoste.votedroid.exceptions.MauvaiseQuestion;
+import com.decoste.votedroid.modele.VDQuestion;
+import com.decoste.votedroid.service.ServiceImplementation;
 
 import java.io.IOException;
 
@@ -33,7 +33,7 @@ public class TestsApplication {
     public void createDb() {
         Context context = ApplicationProvider.getApplicationContext();
         bd = Room.inMemoryDatabaseBuilder(context, BD.class).build();
-        service = ServiceImplementation.getInstance(bd);
+        service = new ServiceImplementation(bd);
     }
 
 

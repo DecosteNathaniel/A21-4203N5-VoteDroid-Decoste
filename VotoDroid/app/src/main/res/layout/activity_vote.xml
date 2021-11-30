@@ -38,7 +38,7 @@
         android:numStars="5" />
 
     <AutoCompleteTextView
-        android:id="@+id/textQuestion"
+        android:id="@+id/textVoteur"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:translationY="20dp"
@@ -46,13 +46,13 @@
         android:layout_marginRight="50dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="#ADCDC5"
-        android:hint="@string/creationQuestion_titre"
+        android:hint="Nom du voteur"
         android:theme="@style/text_insert"
         android:ems="10"
         android:inputType="text" />
 
     <Button
-        android:id="@+id/btnPoserQuestion"
+        android:id="@+id/btnVoter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"

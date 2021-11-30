@@ -9,13 +9,15 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.decoste.votedroid.modele.VDQuestion;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static androidx.core.content.ContextCompat.startActivity;
 
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyViewHolder> {
-    public List<Question> list;
+    public List<VDQuestion> list;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -26,6 +28,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
         // each data item is just a string in this case
         public TextView tvQuestion;
         public TextView tvButton;
+
         public MyViewHolder(LinearLayout v) {
             super(v);
             tvQuestion = v.findViewById(R.id.tvQuestion);
@@ -56,8 +59,9 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        Question questionCourante = list.get(position);
-        holder.tvQuestion.setText(questionCourante.question); // TODO setText sur un integer crash
+        VDQuestion questionCourante = list.get(position);
+
+        holder.tvQuestion.setText(questionCourante.texteQuestion); // TODO setText sur un integer crash
 
         holder.tvButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +74,9 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                long idQuestion = questionCourante.idQuestion;
                 Intent intent = new Intent(v.getContext(), VoteActivity.class);
+                intent.putExtra("idQ", idQuestion);
                 v.getContext().startActivity(intent);
             }
         });

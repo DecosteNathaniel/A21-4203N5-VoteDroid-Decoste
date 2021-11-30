@@ -14,7 +14,10 @@ import androidx.room.Room;
 
 import com.decoste.votedroid.bd.BD;
 import com.decoste.votedroid.databinding.ActivityMainBinding;
+import com.decoste.votedroid.modele.VDQuestion;
 import com.decoste.votedroid.service.ServiceImplementation;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
@@ -82,9 +85,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void remplirRecycle(){
-        for (int i = 0; i < 20; i++){
-            Question q = new Question();
-            q.question = "Question " + (i + 1);
+        List<VDQuestion> questions = service.toutesLesQuestions();
+        for (int i = 0; i < questions.size(); i++){
+            VDQuestion q = questions.get(i);
+            q.texteQuestion = questions.get(i).texteQuestion;
+            q.idQuestion = questions.get(i).idQuestion;
             adapter.list.add(q);
         }
         adapter.notifyDataSetChanged();

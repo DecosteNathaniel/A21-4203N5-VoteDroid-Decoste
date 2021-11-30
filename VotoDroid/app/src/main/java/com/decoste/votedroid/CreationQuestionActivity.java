@@ -14,6 +14,7 @@ import com.decoste.votedroid.bd.BD;
 import com.decoste.votedroid.databinding.ActivityCreationQuestionBinding;
 import com.decoste.votedroid.exceptions.MauvaiseQuestion;
 import com.decoste.votedroid.modele.VDQuestion;
+import com.decoste.votedroid.modele.VDVote;
 import com.decoste.votedroid.service.ServiceImplementation;
 
 public class CreationQuestionActivity extends AppCompatActivity {

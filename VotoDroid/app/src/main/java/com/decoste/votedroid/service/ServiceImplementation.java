@@ -1,6 +1,8 @@
 package com.decoste.votedroid.service;
 
+import com.decoste.votedroid.Question;
 import com.decoste.votedroid.bd.BD;
+import com.decoste.votedroid.exceptions.MauvaisVote;
 import com.decoste.votedroid.exceptions.MauvaiseQuestion;
 import com.decoste.votedroid.modele.VDQuestion;
 import com.decoste.votedroid.modele.VDVote;
@@ -14,7 +16,7 @@ public class ServiceImplementation{
     private static ServiceImplementation single_instance = null;
     private BD maBD;
 
-    private ServiceImplementation (BD maBD){
+    public ServiceImplementation (BD maBD){
         this.maBD = maBD;
     }
 
@@ -46,14 +48,17 @@ public class ServiceImplementation{
     }
 
     
-    public void creerVote(VDVote vdVote) {
+    public void creerVote(VDVote vdVote) throws MauvaisVote {
+        if (vdVote.nomVoteur == null || vdVote.nomVoteur.trim().length() == 0) throw new MauvaisVote("Nom voteur vide");
 
+        vdVote.idVote = maBD.monDao().insertVote(vdVote);
     }
 
     
     public List<VDQuestion> toutesLesQuestions() {
-        //TODO Trier la liste reçue en BD par nombre de votes et la retourner
-        return new ArrayList<>();
+        ArrayList<VDQuestion> questions = (ArrayList<VDQuestion>) maBD.monDao().getAll();
+
+        return questions;
     }
 
     
