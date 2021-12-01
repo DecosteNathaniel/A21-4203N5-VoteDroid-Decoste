@@ -49,7 +49,10 @@ public class ServiceImplementation{
 
     
     public void creerVote(VDVote vdVote) throws MauvaisVote {
+        List<VDVote> votes = maBD.monDao().getAllVotes();
+
         if (vdVote.nomVoteur == null || vdVote.nomVoteur.trim().length() == 0) throw new MauvaisVote("Nom voteur vide");
+        if (votes.contains(vdVote.nomVoteur) && votes.contains(vdVote.idQuestion)) throw new MauvaisVote("Nom de voteur existe déjà");
 
         vdVote.idVote = maBD.monDao().insertVote(vdVote);
     }

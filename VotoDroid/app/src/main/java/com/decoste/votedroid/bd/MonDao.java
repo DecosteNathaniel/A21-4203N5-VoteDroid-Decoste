@@ -22,5 +22,7 @@ public interface MonDao {
     @Query("SELECT * FROM VDQuestion")
     List<VDQuestion> getAll();
 
+    @Query("SELECT * FROM VDVote")
+    List<VDVote> getAllVotes();
 
 }
