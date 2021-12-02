@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -21,6 +22,8 @@ import com.decoste.votedroid.exceptions.MauvaiseQuestion;
 import com.decoste.votedroid.modele.VDQuestion;
 import com.decoste.votedroid.modele.VDVote;
 import com.decoste.votedroid.service.ServiceImplementation;
+
+import java.util.List;
 
 public class VoteActivity extends AppCompatActivity {
     private ActivityVoteBinding binding;
@@ -50,7 +53,21 @@ public class VoteActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        ChangerTexteQuestionCourante();
     }
+
+    private void ChangerTexteQuestionCourante() {
+        List<VDQuestion> questions = service.toutesLesQuestions();
+
+        long extras = getIntent().getLongExtra("idQ",0L);
+        long value = extras;
+
+        TextView titreQuestion = (TextView) findViewById(R.id.titreQuestion);
+
+        titreQuestion.setText(questions.get((int) value - 1).texteQuestion);
+    }
+
     private void creerVote(String _nomVoteur, int _numStars) {
         long extras = getIntent().getLongExtra("idQ",0L);
         long value = extras;
